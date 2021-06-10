@@ -1,3 +1,4 @@
+import './Instructorpage.css';
 import React from 'react';
 import Instructorscheduledclass from './Instructorscheduledclass';
 import MakeClass from './MakeClass';
@@ -9,30 +10,36 @@ class Instructorpage extends React.Component {
             open: [],
             creating: false
         };
-        this.pReload = this.pReload.bind(this);
         this.createHandle = this.createHandle.bind(this);
-    }
-
-    pReload() {
-        this.setState({
-            open: [],
-            creating: false
-        });
-        console.log(this.state);
+        this.reup = this.reup.bind(this);
     }
 
     createHandle() {
         this.setState({
             creating: !this.state.creating
         });
+        this.reup();
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8081/instructors/${this.props.instructor._id}/sessions`)
+        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
-                    <Instructorscheduledclass key={_s._id} ses={_s} rhandle={this.pReload} />
+                    <Instructorscheduledclass key={_s._id} ses={_s} rhandle={this.reup} />
+                );
+                this.setState({
+                    open: _li
+                });
+            })
+    }
+
+    reup() {
+        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
+            .then(response => response.json())
+            .then(data => {
+                const _li = data.map((_s) => 
+                    <Instructorscheduledclass key={_s._id} ses={_s} rhandle={this.reup} />
                 );
                 this.setState({
                     open: _li
@@ -43,22 +50,30 @@ class Instructorpage extends React.Component {
     render() {
         if (this.state.creating) {
             return(
-                <div>
-                    Your Classes
-                    <ul>
-                        {this.state.open}
-                    </ul>
-                    <MakeClass cre={this.createHandle} rHandle={this.pReload} inst={this.props.instructor} />
+                <div className="pwrap">
+                    <div className="wrap1">
+                        Your Classes
+                        <ul>
+                            {this.state.open}
+                        </ul>
+                    </div>
+                    <div className="wrap2">
+                        <MakeClass cre={this.createHandle} rHandle={this.reup} inst={this.props.instructor} handler={this.props.handler}/>
+                    </div>
                 </div>
             )
         } else {
             return(
-                <div>
-                    Your Classes
-                    <ul>
-                        {this.state.open}
-                    </ul>
-                    <button onClick={this.createHandle}>Schedule a Class</button>
+                <div className="pwrap">
+                    <div className="wrap1">
+                        Your Classes
+                        <ul>
+                            {this.state.open}
+                        </ul>
+                    </div>
+                    <div className="wrap3">
+                        <button onClick={this.createHandle} className="butt1">Schedule a Class</button>
+                    </div>
                 </div>
             )
         }

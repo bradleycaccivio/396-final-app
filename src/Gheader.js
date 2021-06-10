@@ -1,3 +1,4 @@
+import './Gheader.css';
 import React from 'react';
 import Loginform from './Loginform';
 import Signupform from './Signupform';
@@ -11,11 +12,12 @@ class Gheader extends React.Component {
             }
         this.loginHandle = this.loginHandle.bind(this);
         this.signupHandle = this.signupHandle.bind(this);
+        this.cancelHandle = this.cancelHandle.bind(this);
     }
 
     loginHandle() {
         this.setState({
-            isLoggingIn: !this.state.isLoggingIn,
+            isLoggingIn: true,
             isSigningUp: false
         });
     }
@@ -23,7 +25,14 @@ class Gheader extends React.Component {
     signupHandle() {
         this.setState({
             isLoggingIn: false,
-            isSigningUp: !this.state.isSigningUp
+            isSigningUp: true
+        });
+    }
+
+    cancelHandle() {
+        this.setState({
+            isLoggingIn: false,
+            isSigningUp: false
         });
     }
 
@@ -39,30 +48,47 @@ class Gheader extends React.Component {
             return(
                 <div>
                     <div>
-                        <p>Yoga Time</p>
-                        <button onClick={this.loginHandle}>Sign In</button>
-                        <button onClick={this.signupHandle}>Sign Up</button>
+                        <p className="gttl">Yoga Time</p>
+                        <div className="buttons">
+                            <button onClick={this.loginHandle} className="headaside">Sign In</button>
+                            <div className="spacer"></div>
+                            <button onClick={this.signupHandle} className="headaside">Sign Up</button>
+                        </div>
                     </div>
-                    <Loginform handler={this.props.handler} log={this.loginHandle} />
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Loginform handler={this.props.handler} log={this.cancelHandle} />
                 </div>
             );
         } else if (this.state.isSigningUp) {
             return(
                 <div>
                     <div>
-                        <p>Yoga Time</p>
-                        <button onClick={this.loginHandle}>Sign In</button>
-                        <button onClick={this.signupHandle}>Sign Up</button>
+                        <p className="gttl">Yoga Time</p>
+                        <div className="buttons">
+                            <button onClick={this.loginHandle} className="headaside">Sign In</button>
+                            <div className="spacer"></div>
+                            <button onClick={this.signupHandle} className="headaside">Sign Up</button>
+                        </div>
                     </div>
-                    <Signupform handler = {this.props.handler} sig={this.signupHandle} />
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Signupform handler={this.props.handler} sig={this.cancelHandle} />
                 </div>
             );
         } else {
             return(
                 <div>
-                    <p>Yoga Time</p>
-                    <button onClick={this.loginHandle}>Sign In</button>
-                    <button onClick={this.signupHandle}>Sign Up</button>
+                    <p className="gttl">Yoga Time</p>
+                    <div className="buttons">
+                        <button onClick={this.loginHandle} className="headaside">Sign In</button>
+                        <div className="spacer"></div>
+                        <button onClick={this.signupHandle} className="headaside">Sign Up</button>
+                    </div>
                 </div>
             );
         }

@@ -1,0 +1,40 @@
+.gttl {
+    font-size: 350%;
+    font-family: 'Signika', sans-serif;
+    padding-bottom: 1%;
+    font-weight: bold;
+    color: #BC986A;
+}
+
+.headaside {
+    max-width: 30%;
+    flex-basis: auto;
+    flex-grow: 1;
+    background-color: #8D8741;
+    border: none;
+    color: white;
+    padding: 0.55% 0%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 1% 2%;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.headaside:hover {
+    background-color: #5c5727;
+}
+
+.buttons {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 40%;
+    float: right;
+    top: 0px;
+}
+
+.spacer {
+    flex-grow: 0.01;
+}

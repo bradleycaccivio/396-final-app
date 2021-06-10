@@ -7,22 +7,22 @@ class Studentscheduledclass extends React.Component {
     }
 
     cancelHandle() {
-        const sess = this.props.ses;
-        const newS = sess.students.splice(sess.students.indexOF(this.props.stud._id), 1);
-        const newF = newS.length < sess.capacity ? true : false;
-        fetch(`http://localhost:8081/sessions/${sess._id}`, {
+        const sess = this.props.ses.students;
+        sess.splice(sess.indexOf(this.props.stud._id), 1);
+        const newF = sess.length < this.props.ses.capacity ? false : true;
+        fetch(`http://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                students: newS,
+                students: sess,
                 full: newF
             })
         })
             .then(response => response.json())
             .then(data => {
-                this.props.pReload();
+                this.props.rhandle();
             })
     }
 
@@ -30,8 +30,8 @@ class Studentscheduledclass extends React.Component {
         return(
             <li>
                 <div>
-                    {this.props.value.day}
-                    {this.props.value.instructor}
+                    {this.props.ses.day}
+                    {this.props.ses.instructor}
                     <button onClick={this.cancelHandle}>Cancel</button>
                 </div>
             </li>

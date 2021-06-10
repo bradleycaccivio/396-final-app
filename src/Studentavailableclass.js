@@ -7,22 +7,22 @@ class Studentavailableclass extends React.Component {
     }
 
     joinHandle() {
-        const sess = this.props.ses;
-        const newS = sess.students.append(this.props.stud);
-        const newF = newS.length < sess.capacity ? true : false;
-        fetch(`http://localhost:8081/sessions/${sess._id}`, {
+        const sess = this.props.ses.students;
+        sess.push(this.props.stud);
+        const newF = sess.length < this.props.ses.capacity ? false : true;
+        fetch(`http://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                students: newS,
+                students: sess,
                 full: newF
             })
         })
             .then(response => response.json())
             .then(data => {
-                this.props.pReload();
+                this.props.rhandle();
             })
     }
 
@@ -30,9 +30,9 @@ class Studentavailableclass extends React.Component {
         return(
             <li>
                 <div>
-                    {this.props.value.day}
-                    {this.props.value.instructor}
-                    {`${this.props.ses.length}/${this.props.ses.capacity} students enrolled`}
+                    {this.props.ses.day}
+                    {this.props.ses.instructor}
+                    {`${this.props.ses.students.length}/${this.props.ses.capacity} students enrolled`}
                     <button onClick={this.joinHandle}>Join</button>
                 </div>
             </li>

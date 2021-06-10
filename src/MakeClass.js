@@ -5,7 +5,7 @@ class MakeClass extends React.Component {
         super(props);
         this.state = {
             capacity: 30,
-            day: new Date().toLocaleDateString(),
+            day: new Date().toString(),
             full: false
         };
         this.handleValueChange = this.handleValueChange.bind(this);
@@ -20,11 +20,10 @@ class MakeClass extends React.Component {
         this.setState({
             [name]: value
         });
-        console.log(this.state);
     }
 
-    handleSubmit(event) {
-        fetch(`http://localhost:8081/sessions`, {
+    handleSubmit = (event) => {
+        fetch(`http://final-api-396.herokuapp.com/sessions`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,9 +38,9 @@ class MakeClass extends React.Component {
         })
             .then(response => response.json())
             .then(data => {
-                //this.props.rHandle()
-                console.log(data);
+                this.props.cre();
             })
+        event.preventDefault();
     }
 
     render() {

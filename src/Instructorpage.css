@@ -1,0 +1,41 @@
+.pwrap {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.wrap1 {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.wrap2 {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.wrap3 {
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.butt1 {
+    max-width: 100%;
+    background-color: #659DBD;
+    border: none;
+    color: white;
+    width: 25%;
+    height: 30px;
+    padding: 0% 0%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 1% 0.5%;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+}
+
+.butt1:hover {
+    background-color: #527f99;
+}

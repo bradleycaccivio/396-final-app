@@ -1,3 +1,4 @@
+import './Uheader.css';
 import React from 'react';
 
 class Uheader extends React.Component {
@@ -13,9 +14,12 @@ class Uheader extends React.Component {
     render() {
         return(
             <div>
-                <p>Yoga Time</p>
-                <p>Welcome {this.props.user.name}</p>
-                <button onClick={this.handleSignout}>Sign Out</button>
+                <p className="uttl">Yoga Time</p>
+                <div className="buttons">
+                    <p className="headaside">Welcome {this.props.user.name}</p>
+                    <div className="spacer"></div>
+                    <button onClick={this.handleSignout} className="headaside">Sign Out</button>
+                </div>
             </div>
         );
     }

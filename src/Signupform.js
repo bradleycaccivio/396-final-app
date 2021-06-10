@@ -27,7 +27,7 @@ class Signupform extends React.Component {
 
     handleSubmit(event) {
         if (this.state.uType === "Student") {
-            fetch("http://localhost:8081/students", {
+            fetch("http://final-api-396.herokuapp.com/students", {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ class Signupform extends React.Component {
                     alert("shouldnt be here")
                 })
         } else if (this.state.uType === "Instructor") {
-            fetch("http://localhost:8081/instructors", {
+            fetch("http://final-api-396.herokuapp.com//instructors", {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
@@ -78,33 +78,28 @@ class Signupform extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    I am a(n):
-                    <select name="uType" defaultValue={this.state.uType} onChange={this.handleValueChange}>
-                        <option value=""></option>
-                        <option value="Student">Student</option>
-                        <option value="Instructor">Instructor</option>
-                    </select>
-                </label>
-                <label>
-                    Name:
-                    <input type="text" name="name" defaultValue={this.state.name} onChange={this.handleValueChange} />
-                </label>
-                <label>
-                    Username:
-                    <input type="text" name="uName" defaultValue={this.state.uName} onChange={this.handleValueChange} />
-                </label>
-                <label>
-                    Password:
-                    <input type="password" name="pswrd" defaultValue={this.state.pswrd} onChange={this.handleValueChange} />
-                </label>
-                <label>
-                    Confirm:
-                    <input type="password" name="cnf" defaultValue={this.state.cnf} onChange={this.handleValueChange} />
-                </label>
-                <input type="submit" value="Submit" />
-                <button onClick={this.handleCancel}>Cancel</button>
+            <form onSubmit={this.handleSubmit} className="login">
+                <select name="uType" defaultValue={this.state.uType} onChange={this.handleValueChange} className="sel">
+                    <option value="" selected>I am a(n)</option>
+                    <option value="Student">Student</option>
+                    <option value="Instructor">Instructor</option>
+                </select>
+                <br></br>
+                <br></br>
+                <input type="text" name="name" defaultValue={this.state.name} onChange={this.handleValueChange} placeholder="Name" className="input100"/>
+                <br></br>
+                <br></br>
+                <input type="text" name="uName" defaultValue={this.state.uName} onChange={this.handleValueChange} placeholder="Username" className="input100"/>
+                <br></br>
+                <br></br>
+                <input type="password" name="pswrd" defaultValue={this.state.pswrd} onChange={this.handleValueChange} placeholder="Password" className="input100"/>
+                <br></br>
+                <br></br>               
+                <input type="password" name="cnf" defaultValue={this.state.cnf} onChange={this.handleValueChange} placeholder="Confirm" className="input100"/>
+                <br></br>
+                <br></br>
+                <input type="submit" value="Submit" className="butt"/>
+                <button onClick={this.handleCancel} className="butt">Cancel</button>
             </form>
         )
     }

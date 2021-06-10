@@ -8,7 +8,8 @@ class Yoga extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: null
+            user: null,
+            reload: false
             }
         this.handler = this.handler.bind(this);
     }
@@ -37,7 +38,9 @@ class Yoga extends React.Component {
             return(
                 <div>
                     <Uheader handler={this.handler} user={this.state.user}/>
-                    <Instructorpage instructor={this.state.user}/>
+                    <br></br>
+                    <br></br>
+                    <Instructorpage instructor={this.state.user} handler={this.handler}/>
                 </div>
             )
         }

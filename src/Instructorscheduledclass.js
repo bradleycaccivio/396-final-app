@@ -7,13 +7,18 @@ class Instructorscheduledclass extends React.Component {
     }
 
     cancelHandle() {
-        const sess = this.props.ses;
-        fetch(`http://localhost:8081/sessions/${sess._id}`, {
+        fetch(`http://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
             method: 'DELETE'
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                } else {
+                    return response.text();
+                }
+            })
             .then(data => {
-                this.props.pReload();
+                this.props.rhandle();
             })
     }
 
@@ -21,9 +26,9 @@ class Instructorscheduledclass extends React.Component {
         return(
             <li>
                 <div>
-                    {this.props.value.day}
-                    {this.props.value.instructor}
-                    {`${this.props.ses.length}/${this.props.ses.capacity} students enrolled`}
+                    {this.props.ses.day}
+                    {this.props.ses.instructor}
+                    {`${this.props.ses.students.length}/${this.props.ses.capacity} students enrolled`}
                     <button onClick={this.cancelHandle}>Cancel</button>
                 </div>
             </li>
