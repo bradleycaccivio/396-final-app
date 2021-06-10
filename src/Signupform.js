@@ -44,7 +44,7 @@ class Signupform extends React.Component {
                     this.props.handler(data);
                 })
                 .catch(err => {
-                    alert("shouldnt be here")
+                    alert(err)
                 })
         } else if (this.state.uType === "Instructor") {
             fetch("http://final-api-396.herokuapp.com//instructors", {
