@@ -26,6 +26,20 @@
     background-color: #5c5727;
 }
 
+.wmes {
+    max-width: 30%;
+    flex-basis: auto;
+    flex-grow: 1;
+    border: none;
+    color: #8D8741;
+    padding: 0.55% 0%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 1% 2%;
+    font-weight: 550;
+}
+
 .buttons {
     justify-content: flex-end;
     display: flex;

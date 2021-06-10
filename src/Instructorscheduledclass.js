@@ -196,23 +196,7 @@ class Instructorscheduledclass extends React.Component {
         });
     }
 
-    parseInst = () => {
-        var ret;
-        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.ses.instructor}`)
-            .then(response => response.json())
-            .then(data => {
-                ret = data.name;
-                this.setState({
-                    _is: ret
-                })
-            })
-            .catch(err => {
-                alert("hmm");
-            })
-    }
-
     componentDidMount() {
-        this.parseInst();
         this.parseDate();
         this.parseTime();
     }

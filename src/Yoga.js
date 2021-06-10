@@ -31,6 +31,8 @@ class Yoga extends React.Component {
             return(
                 <div>
                     <Uheader handler={this.handler} user={this.state.user}/>
+                    <br></br>
+                    <br></br>
                     <Studentpage student={this.state.user}/>
                 </div>
             );
