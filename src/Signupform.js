@@ -27,7 +27,7 @@ class Signupform extends React.Component {
 
     handleSubmit(event) {
         if (this.state.uType === "Student") {
-            fetch("http://final-api-396.herokuapp.com/students", {
+            fetch("https://final-api-396.herokuapp.com/students", {
                 method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json'
