@@ -24,7 +24,7 @@ class MakeClass extends React.Component {
     }
 
     handleSubmit = (event) => {
-        fetch(`http://final-api-396.herokuapp.com/sessions`, {
+        fetch(`https://final-api-396.herokuapp.com/sessions`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

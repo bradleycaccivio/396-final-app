@@ -15,7 +15,7 @@ class Instructorscheduledclass extends React.Component {
     }
 
     cancelHandle() {
-        fetch(`http://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
+        fetch(`https://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
             method: 'DELETE'
         })
             .then(response => {

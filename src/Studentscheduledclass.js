@@ -18,7 +18,7 @@ class Studentscheduledclass extends React.Component {
         const sess = this.props.ses.students;
         sess.splice(sess.indexOf(this.props.stud._id), 1);
         const newF = sess.length < this.props.ses.capacity ? false : true;
-        fetch(`http://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
+        fetch(`https://final-api-396.herokuapp.com/sessions/${this.props.ses._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -202,7 +202,7 @@ class Studentscheduledclass extends React.Component {
 
     parseInst = () => {
         var ret;
-        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.ses.instructor}`)
+        fetch(`https://final-api-396.herokuapp.com/instructors/${this.props.ses.instructor}`)
             .then(response => response.json())
             .then(data => {
                 ret = data.name;

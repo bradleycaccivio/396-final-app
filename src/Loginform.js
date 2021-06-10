@@ -26,7 +26,7 @@ class Loginform extends React.Component {
 
     handleSubmit(event) {
         if (this.state.uType === "Student") {
-            fetch(`http://final-api-396.herokuapp.com/students/${this.state.uName}&${this.state.pswrd}`)
+            fetch(`https://final-api-396.herokuapp.com/students/${this.state.uName}&${this.state.pswrd}`)
                 .then(response => response.json())
                 .then(data => {
                     this.props.handler(data);
@@ -35,7 +35,7 @@ class Loginform extends React.Component {
                     alert("Username or Password is incorrect")
                 })
         } else if (this.state.uType === "Instructor") {
-            fetch(`http://final-api-396.herokuapp.com/instructors/${this.state.uName}&${this.state.pswrd}`)
+            fetch(`https://final-api-396.herokuapp.com/instructors/${this.state.uName}&${this.state.pswrd}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log("hello");

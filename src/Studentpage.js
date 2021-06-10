@@ -14,7 +14,7 @@ class Studentpage extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://final-api-396.herokuapp.com/students/${this.props.student._id}/sessions`)
+        fetch(`https://final-api-396.herokuapp.com/students/${this.props.student._id}/sessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
@@ -24,7 +24,7 @@ class Studentpage extends React.Component {
                     enrolled: _li
                 });
             })
-        fetch(`http://final-api-396.herokuapp.com/students/${this.props.student._id}/availablesessions`)
+        fetch(`https://final-api-396.herokuapp.com/students/${this.props.student._id}/availablesessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
@@ -37,7 +37,7 @@ class Studentpage extends React.Component {
     }
 
     reup() {
-        fetch(`http://final-api-396.herokuapp.com/students/${this.props.student._id}/sessions`)
+        fetch(`https://final-api-396.herokuapp.com/students/${this.props.student._id}/sessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
@@ -47,7 +47,7 @@ class Studentpage extends React.Component {
                     enrolled: _li
                 });
             })
-        fetch(`http://final-api-396.herokuapp.com/students/${this.props.student._id}/availablesessions`)
+        fetch(`https://final-api-396.herokuapp.com/students/${this.props.student._id}/availablesessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 

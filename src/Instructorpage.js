@@ -22,7 +22,7 @@ class Instructorpage extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
+        fetch(`https://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
@@ -35,7 +35,7 @@ class Instructorpage extends React.Component {
     }
 
     reup() {
-        fetch(`http://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
+        fetch(`https://final-api-396.herokuapp.com/instructors/${this.props.instructor._id}/sessions`)
             .then(response => response.json())
             .then(data => {
                 const _li = data.map((_s) => 
