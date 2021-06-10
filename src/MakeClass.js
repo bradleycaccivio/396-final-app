@@ -1,10 +1,11 @@
+import './MakeClass.css';
 import React from 'react';
 
 class MakeClass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            capacity: 30,
+            capacity: "",
             day: new Date().toString(),
             full: false
         };
@@ -45,17 +46,15 @@ class MakeClass extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Time:
-                    <input type="datetime-local" name="day" defaultValue={this.state.day} onChange={this.handleValueChange} />
-                </label>
-                <label>
-                    Capacity:
-                    <input type="number" name="capacity" defaultValue={this.state.capacity} onChange={this.handleValueChange} />
-                </label>
-                <input type="submit" value="Submit" />
-                <button onClick={this.props.cre}>Cancel</button>
+            <form onSubmit={this.handleSubmit} className="mclass">
+                <input type="datetime-local" name="day" defaultValue={this.state.day} onChange={this.handleValueChange} className="de"/>
+                <br></br>
+                <br></br>
+                <input type="number" name="capacity" defaultValue={this.state.capacity} onChange={this.handleValueChange} className="input200" placeholder="Capacity" min="0"/>
+                <br></br>
+                <br></br>
+                <input type="submit" value="Submit" className="makebutt"/>
+                <button onClick={this.props.cre} className="makebutt">Cancel</button>
             </form>
         )
     }

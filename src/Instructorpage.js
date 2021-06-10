@@ -53,7 +53,9 @@ class Instructorpage extends React.Component {
                 <div className="pwrap">
                     <div className="wrap1">
                         Your Classes
-                        <ul>
+                        <div className="myline">
+                        </div>
+                        <ul className="icl">
                             {this.state.open}
                         </ul>
                     </div>
@@ -67,7 +69,9 @@ class Instructorpage extends React.Component {
                 <div className="pwrap">
                     <div className="wrap1">
                         Your Classes
-                        <ul>
+                        <div className="myline">
+                        </div>
+                        <ul className="icl">
                             {this.state.open}
                         </ul>
                     </div>
